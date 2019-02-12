@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:LoginPage" 
+             x:Class="LoginPage.MainPage"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             BackgroundColor="Purple"
+             xmlns:viewModels="clr-namespace:LoginPage.ViewModel"
+             xmlns:toolkit="clr-namespace:LoginPage.Toolkit">
+    
+    <ContentPage.BindingContext>
+        <viewModels:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:BoolToDoubleConverter x:Key="boolToDoubleConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".4*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".5*"/>
+        </Grid.RowDefinitions>
+        
+        <lottie:AnimationView Animation="runnerman.json"
+                              AutoPlay="true"
+                              Loop="true"
+                              Grid.Row="0"/>
+
+        <StackLayout Grid.Row="1"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start">
+            <Label HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Text="{Binding LargeBanner}"
+                   FontSize="25"/>
+            
+            <Label HorizontalOptions="Center"
+                   FontSize="20"
+                   TextColor="White"
+                   Text="{Binding SmallBanner}"/>
+        </StackLayout>
+        
+        <StackLayout VerticalOptions="Start"
+                     Grid.Row="2"
+                     Padding="10,0,10,0">
+            <Entry Placeholder="Enter your login..."
+                   TextColor="White"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="Fill"
+                   Text="{Binding LoginEntryText}"/>
+            <Label Text="{Binding LoginErrorText}"
+                   TextColor="Red"
+                   FontSize="Small"
+                   Opacity="{Binding LoginErrorOpacity, 
+                                Converter={StaticResource boolToDoubleConverter}}"/>
+            
+            <Entry Placeholder="Enter your password..."
+                   TextColor="White"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="Fill"
+                   IsPassword="true"
+                   Text="{Binding PasswordEntryText}"/>
+            
+            <Label Text="{Binding PasswordErrorText}"
+                   TextColor="Red"
+                   FontSize="Small"
+                   Opacity="{Binding PasswordErrorOpacity,
+                                Converter={StaticResource boolToDoubleConverter}}"/>
+            
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Sign Up"
+                        TextColor="White"
+                        BackgroundColor="Silver"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding SignUpCommand}"/>
+                <Button Text="Sign In"
+                        TextColor="White"
+                        BackgroundColor="Silver"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding SignInCommand}"/>
+            </StackLayout>
+            
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>

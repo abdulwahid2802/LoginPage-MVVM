@@ -12,7 +12,7 @@ namespace LoginPage
         {
             InitializeComponent();
 
-            MainPage = new CustomLoginPage();
+            MainPage = new DynamicLoginPage();
         }
 
         protected override void OnStart()

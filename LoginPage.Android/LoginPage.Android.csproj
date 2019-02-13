@@ -114,6 +114,7 @@
     <AndroidAsset Include="Assets\truecosmos.json" />
     <AndroidAsset Include="Assets\strategy_shape.json" />
     <AndroidAsset Include="Assets\spirit_geek.json" />
+    <AndroidAsset Include="Assets\office_coding.json" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

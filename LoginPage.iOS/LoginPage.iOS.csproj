@@ -173,6 +173,7 @@
     <BundleResource Include="Resources\truecosmos.json" />
     <BundleResource Include="Resources\strategy_shape.json" />
     <BundleResource Include="Resources\spirit_geek.json" />
+    <BundleResource Include="Resources\office_coding.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomRenderers\" />

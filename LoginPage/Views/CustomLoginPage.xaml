@@ -8,7 +8,6 @@
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
     
-    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Entry" x:Key="EntryStyle">
@@ -29,7 +28,7 @@
             </Style>
             
             <xamanimation:ColorAnimation Easing="Linear"
-                                         Duration="10000"
+                                         Duration="500"
                                          ToColor="#f53b73"
                                          Target="{x:Reference mainPage}"
                                          x:Key="colorAnimation"/>
@@ -37,17 +36,16 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    
     <StackLayout HorizontalOptions="Center"
                  Padding="0,30,0,20"
                  Spacing="15">
-        
-        
-        <lottie:AnimationView Animation="coffee_time.json"
+        <lottie:AnimationView Animation="office_coding.json"
                               Loop="true"
                               AutoPlay="true"
+                              HeightRequest="200"
+                              WidthRequest="200"
+                              HorizontalOptions="FillAndExpand"
                               VerticalOptions="FillAndExpand"/>
-        
         <StackLayout Spacing="0">
             <Label FontAttributes="Bold"
                FontSize="25"
@@ -55,7 +53,6 @@
             <Label FontSize="Medium"
                Text="Cross-Platform apps made easy"/>
         </StackLayout>
-        
         <StackLayout>
             <toolkit:CustomEntry Placeholder="Enter you email ..."
                              Style="{StaticResource EntryStyle}"
@@ -73,13 +70,12 @@
                 VerticalOptions="StartAndExpand">
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
-                    <toolkit:ShiverAction Distance="3"
+                    <toolkit:ShiverAction Distance="5"
                                           Vibrations="10"
                                           Length="500"/>
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        
         
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="Center">
@@ -88,8 +84,7 @@
                    VerticalOptions="Center"/>
             <Switch/>
         </StackLayout>
+        
     </StackLayout>
-    
-    
     
 </ContentPage>

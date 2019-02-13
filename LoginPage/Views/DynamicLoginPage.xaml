@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="LoginPage.Views.DynamicLoginPage"
+             xmlns:toolkit="clr-namespace:LoginPage.Toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             BackgroundColor="#f59b73"
+             x:Name="mainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <!--     Xamanimation Backgournd Animation       -->
+            <xamanimation:ColorAnimation Duration="500"
+                                         ToColor="#f53b73"
+                                         x:Key="backgroundAnimation"
+                                         Easing="Linear"
+                                         Target="{x:Reference mainPage}"/>
+            
+            
+            
+            <!--      Custom Entry Style      -->
+            <Style x:Key="customEntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="PlaceholderColor" Value="#85ffffff"/>
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            
+            <!--     Button Style       -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius">
+                   <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                    iOS="20"
+                                    Android="25"/>
+                    </Setter.Value> 
+                </Setter>
+                <Style.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <toolkit:ShiverAction Distance="5"
+                                            Vibrations="10"
+                                            Length="500"/>
+                </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            
+        <!--     Label Style       -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid x:Name="mainGrid"
+          RowSpacing="0"
+          ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout x:Name="upperPanel"
+                     Grid.Row="0" Grid.Column="0">
+            <lottie:AnimationView Animation="office_coding.json"
+                                  Loop="true"
+                                  AutoPlay="true"
+                                  HeightRequest="200"/>
+            <Label  FontAttributes="Bold"
+                    FontSize="25"
+                    Text="Welcome to Xamarin.Forms"/>
+            <Label  FontSize="Medium"
+                    Text="Cross-Platform apps made easy"/>
+        </StackLayout>
+        
+        <StackLayout x:Name="lowerPanel"
+                     Grid.Row="1" Grid.Column="0"
+                     Padding="30,10,30,10">
+            <toolkit:CustomEntry Placeholder="Enter you email ..."
+                             Style="{StaticResource customEntryStyle}"/>
+            <toolkit:CustomEntry Placeholder="Enter you password ..."
+                             Style="{StaticResource customEntryStyle}"/>
+            
+            <Button Text="Login"
+                    VerticalOptions="CenterAndExpand"/>
+            
+            <StackLayout    Orientation="Horizontal"
+                            HorizontalOptions="Center"
+                            VerticalOptions="EndAndExpand">
+                <Label  FontSize="Small"
+                        Text="I am new here. Register me!"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"/>
+                <Switch/>
+            </StackLayout>
+            
+        </StackLayout>
+    </Grid>
+    
+    
+</ContentPage>

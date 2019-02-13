@@ -23,9 +23,9 @@ namespace LoginPage.Toolkit
 
         protected override void Invoke(VisualElement sender)
         {
-            sender.Rotation = 0;
+            //sender.Rotation = 0; //used when shivering rotation axis
+            sender.TranslationX = 0;
             sender.AnchorX = .5;
-
             sender.AnchorY = .5;
             sender.TranslateTo(Distance, 0, (uint)Length,
                            new Easing(t => Math.Sin(Math.PI * t) *

@@ -12,9 +12,14 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.5.2.1" />
+    <PackageReference Include="Xamanimation" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\" />
     <Folder Include="Toolkit\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Toolkit\ColorAnimation.cs" />
   </ItemGroup>
 </Project>

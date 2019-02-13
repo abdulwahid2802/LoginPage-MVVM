@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage BackgroundColor="#f59b73"
+             x:Name="mainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="LoginPage.Views.CustomLoginPage"
+             xmlns:toolkit="clr-namespace:LoginPage.Toolkit"
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="false">
+                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="PlaceholderColor" Value="#75FFFFFF"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            
+            <xamanimation:ColorAnimation Easing="Linear"
+                                         Duration="10000"
+                                         ToColor="#f53b73"
+                                         Target="{x:Reference mainPage}"
+                                         x:Key="colorAnimation"/>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <StackLayout HorizontalOptions="Center"
+                 Padding="0,30,0,20"
+                 Spacing="15">
+        
+        
+        <lottie:AnimationView Animation="coffee_time.json"
+                              Loop="true"
+                              AutoPlay="true"
+                              VerticalOptions="FillAndExpand"/>
+        
+        <StackLayout Spacing="0">
+            <Label FontAttributes="Bold"
+               FontSize="25"
+               Text="Welcome to Xamarin.Forms"/>
+            <Label FontSize="Medium"
+               Text="Cross-Platform apps made easy"/>
+        </StackLayout>
+        
+        <StackLayout>
+            <toolkit:CustomEntry Placeholder="Enter you email ..."
+                             Style="{StaticResource EntryStyle}"
+                             VerticalOptions="End"/>
+            <toolkit:CustomEntry Placeholder="Enter you password ..."
+                             Style="{StaticResource EntryStyle}"/>
+        </StackLayout>
+        
+        <Button BackgroundColor="Transparent"
+                Text="Login"
+                TextColor="White"
+                BorderColor="White"
+                BorderWidth="2"
+                BorderRadius="20"
+                VerticalOptions="StartAndExpand">
+            <Button.Triggers>
+                <EventTrigger Event="Clicked">
+                    <toolkit:ShiverAction Distance="3"
+                                          Vibrations="10"
+                                          Length="500"/>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        
+        
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+            <Label FontSize="Small"
+                   Text="I am new here. Register me!"
+                   VerticalOptions="Center"/>
+            <Switch/>
+        </StackLayout>
+    </StackLayout>
+    
+    
+    
+</ContentPage>

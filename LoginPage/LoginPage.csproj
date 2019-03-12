@@ -21,5 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Toolkit\ColorAnimation.cs" />
+    <Compile Remove="Views\AnimationPage.xaml.cs" />
   </ItemGroup>
 </Project>

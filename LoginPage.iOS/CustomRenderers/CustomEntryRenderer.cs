@@ -16,9 +16,7 @@ namespace LoginPage.iOS.CustomRenderers
 
             if (Control == null)
                 return;
-
-            var view = (CustomEntry)Element;
-
+               
             this.Control.BorderStyle = UIKit.UITextBorderStyle.Bezel;
             this.Control.Layer.BorderWidth = 1;
             this.Control.Layer.BorderColor = Color.White.ToCGColor();

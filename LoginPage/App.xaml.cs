@@ -12,7 +12,7 @@ namespace LoginPage
         {
             InitializeComponent();
 
-            MainPage = new DynamicLoginPage();
+            MainPage = new NavigationPage(new SplashScreen());
         }
 
         protected override void OnStart()

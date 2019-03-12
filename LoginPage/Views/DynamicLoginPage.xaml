@@ -6,29 +6,29 @@
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              BackgroundColor="#f59b73"
+             NavigationPage.HasNavigationBar="false"
              x:Name="mainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             
             <!--     Xamanimation Backgournd Animation       -->
-            <xamanimation:ColorAnimation Duration="500"
+            <xamanimation:ColorAnimation Duration="2000"
                                          ToColor="#f53b73"
                                          x:Key="backgroundAnimation"
                                          Easing="Linear"
                                          Target="{x:Reference mainPage}"/>
             
-            
-            
+
             <!--      Custom Entry Style      -->
             <Style x:Key="customEntryStyle" TargetType="Entry">
                 <Setter Property="TextColor" Value="White"/>
-                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="PlaceholderColor" Value="#85ffffff"/>
                 <Style.Triggers>
-                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
-                        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="False">
+                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -43,16 +43,20 @@
                    <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32"
                                     iOS="20"
-                                    Android="25"/>
+                                    Android="30"/>
                     </Setter.Value> 
                 </Setter>
                 <Style.Triggers>
                     <EventTrigger Event="Clicked">
-                        <toolkit:ShiverAction Distance="5"
-                                            Vibrations="10"
-                                            Length="500"/>
+                        <toolkit:ShiverAction Distance="15"
+                                            Vibrations="2"
+                                            Length="350"/>
                 </EventTrigger>
                 </Style.Triggers>
+                <Style.Behaviors>
+                    <toolkit:ButtonJumpToClickBehavior x:Name="btnJumpBehavior"/>
+                </Style.Behaviors>
+                
             </Style>
             
         <!--     Label Style       -->
@@ -78,10 +82,10 @@
         
         <StackLayout x:Name="upperPanel"
                      Grid.Row="0" Grid.Column="0">
-            <lottie:AnimationView Animation="office_coding.json"
+            <!--<lottie:AnimationView Animation="office_coding.json"
                                   Loop="true"
                                   AutoPlay="true"
-                                  HeightRequest="200"/>
+                                  HeightRequest="200"/>-->
             <Label  FontAttributes="Bold"
                     FontSize="25"
                     Text="Welcome to Xamarin.Forms"/>
@@ -98,7 +102,8 @@
                              Style="{StaticResource customEntryStyle}"/>
             
             <Button Text="Login"
-                    VerticalOptions="CenterAndExpand"/>
+                    VerticalOptions="CenterAndExpand"
+                    x:Name="btnLogin"/>
             
             <StackLayout    Orientation="Horizontal"
                             HorizontalOptions="Center"

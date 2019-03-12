@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamanimation;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace LoginPage.Views
 {
@@ -43,6 +44,19 @@ namespace LoginPage.Views
             Grid.SetRow(lowerPanel, 1);
             Grid.SetColumn(lowerPanel, 0);
 
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //lastClick = DateTime.Now;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            //return base.OnBackButtonPressed();
+
+            return true;
         }
     }
 }
